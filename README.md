@@ -9,15 +9,15 @@ pinned: false
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
 
-
 STEPS:
 
 Start by cloning this repo by using:
 
-git clone https://huggingface.co/spaces/StefanoDUrso/Chainlit-docker
+git clone https://huggingface.co/spaces/MY_HUGGINGFACE_NAME/Chainlit-docker
 Create your Dockerfile file:
 
 # read the doc: https://huggingface.co/docs/hub/spaces-sdks-docker
+
 # you will also find guides on how best to write your Dockerfile
 
 FROM python:3.9
@@ -37,7 +37,7 @@ git add Dockerfile
 git commit -m "Add application file"
 git push
 
-****** ATTENTION ******
+**\*\*** ATTENTION **\*\***
 Since October 2023 it is not possible to push using simply username and password: we need to generate a token at HuggingFace and perform the push accordingly: https://huggingface.co/blog/password-git-deprecation
 
 If you don’t have any SSH keys on your machine, you can use ssh-keygen to generate a new SSH key pair (public + private keys):
@@ -56,17 +56,21 @@ Then, enter a name for this key (for example, “Personal computer”), and copy
 
 Click on “Add key”, and voilà! You have added a SSH key to your huggingface.co account.
 
->ssh -T git@hf.co
-The authenticity of host 'hf.co (...)' can't be established.
-ED25519 key fingerprint is ...
-This key is not known by any other names
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added 'hf.co' (ED25519) to the list of known hosts.
-Hi StefanoDUrso, welcome to Hugging Face.
+> ssh -T git@hf.co
+> The authenticity of host 'hf.co (...)' can't be established.
+> ED25519 key fingerprint is ...
+> This key is not known by any other names
+> Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+> Warning: Permanently added 'hf.co' (ED25519) to the list of known hosts.
+> Hi MY_NAME, welcome to Hugging Face.
 
->ssh -T git@hf.co
-Hi ..., welcome to Hugging Face.
+> ssh -T git@hf.co
+> Hi ..., welcome to Hugging Face.
 
 git remote set-url origin https://MY_GITHUB_NAME:MY_TOKEN@huggingface.co/spaces/MY_HUGGING_FACE_NAME/Chainlit-docker
 
 git pull origin
+
+Once pulled, the target: https://huggingface.co/spaces/MY_HUGGINGFACE_NAME/Chainlit-docker?logs=container will starting loading the application (we will see the logs) and in the end we will see it running at: https://huggingface.co/spaces/MY_HUGGINGFACE_NAME/Chainlit-docker
+
+Let's now push the code into the Github repo:
