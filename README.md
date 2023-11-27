@@ -73,4 +73,24 @@ git pull origin
 
 Once pulled, the target: https://huggingface.co/spaces/MY_HUGGINGFACE_NAME/Chainlit-docker?logs=container will starting loading the application (we will see the logs) and in the end we will see it running at: https://huggingface.co/spaces/MY_HUGGINGFACE_NAME/Chainlit-docker
 
-Let's now push the code into the Github repo:
+Let's now push the code into the Github repo: let's create the Github repo and let's ADD this new repo to the config:
+git remote add github_repo https://github.com/MY_GITHUB_NAME/Chainlit-docker.git
+in order to push on this we need to specify the github repo, so performing:
+git push github_repo
+
+
+You can keep your app in sync with your GitHub repository with Github Actions
+
+First, you should set up your GitHub repository and Spaces app together. Add your Spaces app as an additional remote to your existing Git repository.
+git remote add space https://huggingface.co/spaces/MY_HUGGINGFACE_NAME/Chainlit-docker
+
+Then force push to sync everything for the first time:
+git push --force space main
+
+Create a Github secret with your HF_TOKEN. 
+Github secret tutorial: https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-encrypted-secrets-for-an-environment
+repository -> settings -> secrets and variables -> actions -> new repo secret
+
+create the HF_TOKEN with the value of the token configured in HuggingFace
+
+In your repository, create the .github/workflows/ directory to store your workflow files.
