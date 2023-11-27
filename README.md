@@ -94,3 +94,6 @@ repository -> settings -> secrets and variables -> actions -> new repo secret
 create the HF_TOKEN with the value of the token configured in HuggingFace
 
 In your repository, create the .github/workflows/ directory to store your workflow files.
+
+in order to push on Github repo we need to type:
+git push github_repo
