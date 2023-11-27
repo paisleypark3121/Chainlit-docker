@@ -18,6 +18,6 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git add -A
+          git add .
           git commit -m "adding files"
           git push https://paisleypark3121:$HF_TOKEN@huggingface.co/spaces/StefanoDUrso/Chainlit-docker main
