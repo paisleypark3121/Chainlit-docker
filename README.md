@@ -9,16 +9,7 @@ pinned: false
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
 
-STEPS:
-
-Start by cloning this repo by using:
-
-git clone https://huggingface.co/spaces/MY_HUGGINGFACE_NAME/Chainlit-docker
-Create your Dockerfile file:
-
-# read the doc: https://huggingface.co/docs/hub/spaces-sdks-docker
-
-# you will also find guides on how best to write your Dockerfile
+Create a Dockerfile as follows:
 
 FROM python:3.9
 
@@ -30,15 +21,17 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY . .
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["chainlit", "run", "app.py", "--port", "7860"]
+
+
 Then commit and push:
 
-git add Dockerfile
-git commit -m "Add application file"
+git add .
+git commit -m "first commit"
 git push
 
 **\*\*** ATTENTION **\*\***
-Since October 2023 it is not possible to push using simply username and password: we need to generate a token at HuggingFace and perform the push accordingly: https://huggingface.co/blog/password-git-deprecation
+The PUSH as it is will FAILS: since October 2023 it is not possible to push using simply username and password: we need to generate a token at HuggingFace and perform the push accordingly: https://huggingface.co/blog/password-git-deprecation
 
 If you don’t have any SSH keys on your machine, you can use ssh-keygen to generate a new SSH key pair (public + private keys):
 ssh-keygen -t ed25519 -C "your.email@example.co"
@@ -93,7 +86,9 @@ repository -> settings -> secrets and variables -> actions -> new repo secret
 
 create the HF_TOKEN with the value of the token configured in HuggingFace
 
-In your repository, create the .github/workflows/ directory to store your workflow files.
+In your repository, create the .github/workflows/ directory to store your workflow files:
+- actions_onpull.yaml
+- actions_onpush.yaml
 
 in order to push on Github repo we need to type:
 git push github_repo
