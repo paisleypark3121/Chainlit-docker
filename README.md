@@ -7,6 +7,10 @@ sdk: docker
 pinned: false
 ---
 
+to run locally: chainlit run app.py -w
+
+---
+
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
 
 Create a Dockerfile as follows:
