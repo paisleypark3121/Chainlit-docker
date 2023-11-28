@@ -104,3 +104,10 @@ It is possible to act as follows:
 -- git commit -m "do something"
 -- git push
 Please note that the last opearation is no more git push github_repo but just git push, because github is the main reference now
+
+-- 
+
+in order to handle authentication it is necessary to generate a key:
+chainlit create-secret
+then the key generated must be included in the .env file
+CHAINLIT_AUTH_SECRET=YOUR_KEY_HERE
