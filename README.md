@@ -92,3 +92,11 @@ In your repository, create the .github/workflows/ directory to store your workfl
 
 in order to push on Github repo we need to type:
 git push github_repo
+
+It is possible to act as follows:
+- cloning the repo to a new folder
+- performing all operations and everything will be alligned to hugging face; such as:
+-- git add .
+-- git commit -m "do something"
+-- git push
+Please note that the last opearation is no more git push github_repo but just git push, because github is the main reference now
