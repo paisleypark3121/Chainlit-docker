@@ -11,6 +11,12 @@ to run locally: chainlit run app.py -w
 
 ---
 
+This application is used to deploy a Chainlit application on HuggingFace space.
+The code is on the Github repository and it is linked throgh Github actions to HuggingFace so that for each push on Github there's an associated push to HuggingFace: Docker is used in order to perform the deploy. The readme file has to contain as first rows what's present above in order to deploy it correctly.
+Chainlit authentication is used.
+
+---
+
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
 
 Create a Dockerfile as follows:
